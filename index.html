@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure Chat</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body onload="checkLogin()">
+    <h1>Secure Chat</h1>
+
+    <section class="container">
+      <div id="left-half">
+        <article>
+          <div class="channelList">
+            <h1>Channels:</h1>
+            <button onclick="changeChannel('public')">Public</button>
+            <button
+              id="privateChannel"
+              onclick="changeChannel('private')"
+              disabled
+            >
+              Private
+            </button>
+          </div>
+
+          <div id="login-form">
+            Welcome, guest
+            <div>
+              <label> User name </label>
+              <input id="inputUsername" type="text" />
+              <label> Password </label>
+              <input id="inputPassword" type="password" />
+
+              <div>
+                <button id="btnLogin">Log in</button>
+                <button id="btnLogout" disabled>Log out</button>
+                <button id="btnRegister">Register</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div id="right-half">
+        <article>
+          <h1 id="channelHeader"></h1>
+          <div>
+            <!-- guests have full access to the public chat, but they're kept anonymous -->
+            <ul id="publicMessages"></ul>
+            <!-- Private is completely off limits for anyone who's not logged in -->
+            <ul id="privateMessages"></ul>
+          </div>
+
+          <div class="message-form">
+            <input id="chatInput" type="text" value="Hello!" />
+            <button id="send" onclick="sendMessage()">Send</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>
